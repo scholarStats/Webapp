@@ -1,0 +1,16 @@
+/* Smarthphone */
+@media only screen 
+and (max-width : 768px) {
+
+}
+
+/* Tablet */
+@media only screen 
+and (max-width : 989px) and (min-width : 769px) {
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 990px) {
+}
