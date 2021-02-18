@@ -1,12 +1,27 @@
 /* Smarthphone */
 @media only screen 
 and (max-width : 768px) {
+    #title {
+        width: 50%;
+        margin-top: 20%;
+    }
 
+    #span {
+        padding: 30px;
+    }
 }
 
 /* Tablet */
 @media only screen 
 and (max-width : 989px) and (min-width : 769px) {
+    #title {
+        width: 50%;
+        margin-top: 18%;
+    }
+
+    #span {
+        padding: 30px;
+    }
 
 }
 
