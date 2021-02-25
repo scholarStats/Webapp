@@ -1,12 +1,32 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export default class App extends Component {
+
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            message : ""
+        }
+    }
+
+    componentDidMount = () => {
+        axios.get("http://localhost:5000" , {
+            request: "a simple message"
+        }).catch(err => {
+            console.error(err);
+        }).then((res) => {
+            this.setState(res.data);
+        })
+    }
+
     render = () => {
         return (
             <div>
                 <div id="title">
-                    <h1 align="center">MERNBoys</h1>
+                    <h1 align="center">{this.state.message}</h1>
                     <div id="desc">
                         <p align="center">Seleziona anno</p>
                     </div>
