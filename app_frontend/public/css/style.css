@@ -5,12 +5,52 @@
 body {
     color: rgb(233, 233, 233);
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(124deg, #8c00ff, #4100f3);
-    min-height: 80vh;
+    background: linear-gradient(124deg, #DE3BE6, #8D3CF0, #292ECC);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+}
+
+nav {
+    background-color: rgba(98, 0, 255, 1);
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 1px solid white;
+}
+
+nav a {
+    color: white !important;
+}
+
+.navbar-brand{
+    font-size: 1.10em;
+    color: white !important;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+   
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+  
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }
 
 a {
     text-decoration: none;
+}
+
+section {
+    border-bottom: 2px solid white;
 }
 
 #timeSection{
@@ -20,6 +60,7 @@ a {
     align-items: center;
     justify-content: center;
 }
+
 
 #title{
     position: absolute;
@@ -86,4 +127,36 @@ a {
 
 #info {
     width: 100%;
+}
+
+#chartSection {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#statcard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    border-bottom-right-radius: 30px;
+}
+
+#statvaluepositive {
+    color: rgb(0, 255, 42);
+    font-size: 35px;
+    font-weight: 700;
+}
+
+#statevaluenegative {
+    color: rgb(255, 0, 0);
+    font-size: 35px;
+    font-weight: 700;
 }

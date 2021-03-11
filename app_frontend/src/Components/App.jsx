@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 export default class App extends Component {
-
     constructor(props) {
         super(props);
         
@@ -32,9 +31,7 @@ export default class App extends Component {
                     </div>
                 </div>
                 <section id="timeSection">
-
                     <div id="lineCont">
-
                         <div className="row lineRow">
                             <div className="col">
                                 <Link to="/year/2013">
