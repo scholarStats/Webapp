@@ -17,7 +17,6 @@ app.use(express.static(__dirname + '/public'));
 
 app.get("/" , (req,res) => {
     res.send({message:"Ciao utente"});
-})
+});
 
-app.listen(5000);
-
+module.exports = app;
