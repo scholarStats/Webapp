@@ -80,6 +80,13 @@ function createChartLine() {
             scales: {
                 yAxes: [{
                     ticks: {
+                        fontColor: "white",
+                        beginAtZero: true,
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontColor: "white",
                         beginAtZero: true,
                     }
                 }]
@@ -112,6 +119,20 @@ function createChartBar() {
                     fontColor: "white",
                     fontSize: 18
                 }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        fontColor: "white",
+                        beginAtZero: true,
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontColor: "white",
+                        beginAtZero: true,
+                    }
+                }]
             }
         }
     })
@@ -137,20 +158,20 @@ export default class Year extends Component {
                             </div>
                             <div className="col-lg-6">
                                 <div id="statcard">
-                                    <div className="row">
+                                    <div className="row" align="center">
                                         <div className="col-lg-2"></div>
-                                        <div className="col-lg-4">
+                                        <div className="col-6 col-lg-4 ele">
                                             <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
                                         </div>
-                                        <div className="col-lg-4">
+                                        <div className="col-6 col-lg-4 ele">
                                             <h5>MEDIA TOTALE:</h5> <h3 id="statevaluenegative">-3,8%</h3>
                                         </div>
                                         <div className="col-lg-2"></div>
                                         <div className="col-lg-2"></div>
-                                        <div className="col-lg-4">
+                                        <div className="col-6 col-lg-4 ele">
                                             <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
                                         </div>
-                                        <div className="col-lg-4">
+                                        <div className="col-6 col-lg-4 ele">
                                             <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
                                         </div>
                                         <div className="col-lg-2"></div>
@@ -163,7 +184,7 @@ export default class Year extends Component {
                 </section>
                 <section id="chartSection">
                     <div className="container">
-                        <div className="row">
+                        <div className="row" align="center">
                             <div className="col-lg-6">
                                 <canvas id="chartLine">You need to enable JS</canvas>
                             </div>
@@ -171,18 +192,18 @@ export default class Year extends Component {
                                 <div id="statcard">
                                     <div className="row">
                                         <div className="col-lg-2"></div>
-                                        <div className="col-lg-4">
+                                        <div className="col-6 col-lg-4 ele">
                                             <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
                                         </div>
-                                        <div className="col-lg-4">
+                                        <div className="col-6 col-lg-4 ele">
                                             <h5>MEDIA TOTALE:</h5> <h3 id="statevaluenegative">-3,8%</h3>
                                         </div>
                                         <div className="col-lg-2"></div>
                                         <div className="col-lg-2"></div>
-                                        <div className="col-lg-4">
+                                        <div className="col-6 col-lg-4 ele">
                                             <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
                                         </div>
-                                        <div className="col-lg-4">
+                                        <div className="col-6 col-lg-4 ele">
                                             <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
                                         </div>
                                         <div className="col-lg-2"></div>
@@ -194,7 +215,7 @@ export default class Year extends Component {
                 </section>
                 <section id="chartSection">
                     <div className="container">
-                        <div className="row">
+                        <div className="row" align="center">
                             <div className="col-lg-6">
                                 <canvas id="chartBar">You need to enable JS</canvas>
                             </div>
@@ -202,18 +223,18 @@ export default class Year extends Component {
                                 <div id="statcard">
                                     <div className="row">
                                         <div className="col-lg-2"></div>
-                                        <div className="col-lg-4">
+                                        <div className="col-6 col-lg-4 ele">
                                             <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
                                         </div>
-                                        <div className="col-lg-4">
+                                        <div className="col-6 col-lg-4 ele">
                                             <h5>MEDIA TOTALE:</h5> <h3 id="statevaluenegative">-3,8%</h3>
                                         </div>
                                         <div className="col-lg-2"></div>
                                         <div className="col-lg-2"></div>
-                                        <div className="col-lg-4">
+                                        <div className="col-6 col-lg-4 ele">
                                             <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
                                         </div>
-                                        <div className="col-lg-4">
+                                        <div className="col-6 col-lg-4 ele">
                                             <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
                                         </div>
                                         <div className="col-lg-2"></div>
