@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ChartJS from 'chart.js';
 import Navbar from './Partials/Navbar'
+import Footer from './Partials/Footer'
 
 function createChartDoughnut() {
     let ctx = document.getElementById("chartDoughnut");
@@ -181,7 +182,7 @@ export default class Year extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="" align="center" id="arrowCont">
+                    <div align="center" id="arrowCont">
                         <a className="w3-animate-fading" href="#2" id="arrowIcon"><i class="fas fa-angle-down"></i></a>
                     </div>
                 </section>
@@ -248,11 +249,7 @@ export default class Year extends Component {
                         </div>
                     </div>
                 </section>
-                <footer id="bottom" class="text-center">
-                    <div class="col-12">
-                        <p>Copyright @ 2021 Schoolarmern</p>
-                    </div>
-                </footer>
+                <Footer />
             </div>
         )
     };

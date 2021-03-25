@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import Navbar from './Partials/Navbar'
+import Footer from './Partials/Footer'
 
 export default class App extends Component {
     constructor(props) {
@@ -24,6 +26,7 @@ export default class App extends Component {
     render = () => {
         return (
             <div>
+                <Navbar />
                 <div id="title">
                     <h1 align="center">{this.state.message}</h1>
                     <div id="desc">
@@ -81,6 +84,8 @@ export default class App extends Component {
                         </div>
                     </div>
                 </section>
+                <Footer />
+                
             </div>
         )
     };
