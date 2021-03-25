@@ -9,11 +9,11 @@ export default class App extends Component {
         super(props);
         
         this.state = {
-            message : ""
+            message : "SchoolarMERN"
         }
     }
 
-    componentDidMount = () => {
+    /* componentDidMount = () => {
         axios.get("http://localhost:5000" , {
             request: "a simple message"
         }).catch(err => {
@@ -21,7 +21,7 @@ export default class App extends Component {
         }).then((res) => {
             this.setState(res.data);
         })
-    }
+    } */
 
     render = () => {
         return (

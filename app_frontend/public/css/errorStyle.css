@@ -8,13 +8,8 @@
 	font-family: 'Poppins', sans-serif;
 }
 
-body
-{
-	background: linear-gradient(124deg, #8c00ff, #4100f3);
-	height: 100vh;
-}
 
-#container
+#container-error
 {
 	position: absolute;
 	/*top: 10%;
@@ -31,20 +26,20 @@ body
 	box-shadow: 0 15px 30px rgba(0,0,0,.5);
 }
 
-#container .content
+#container-error .content
 {
 	max-width: 600px;
 	text-align: center;
 }
 
-#container .content h2
+#container-error .content h2
 {
 	font-size: 18vw;
 	color: #fff;
 	line-height: 1em;
 }
 
-#container .content h4
+#container-error .content h4
 {
 	position: relative;
 	font-size: 1.5em;
@@ -56,13 +51,13 @@ body
 	display: inline-block;
 }
 
-#container .content p
+#container-error .content p
 {
 	color: #fff;
 	font-size: 1.2em;
 }
 
-#container .content a
+#container-error .content a
 {
 	position: relative;
 	display: inline-block;
