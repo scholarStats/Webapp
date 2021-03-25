@@ -75,7 +75,7 @@ function createChartLine() {
                 }
             },
             animation: {
-                duration:3000,
+                duration: 3000,
             },
             scales: {
                 yAxes: [{
@@ -112,7 +112,7 @@ function createChartBar() {
         },
         options: {
             animation: {
-                duration:3000,
+                duration: 3000,
             },
             legend: {
                 labels: {
@@ -181,7 +181,11 @@ export default class Year extends Component {
                             </div>
                         </div>
                     </div>
+                    <div className="" align="center" id="arrowCont">
+                        <a className="w3-animate-fading" href="#2" id="arrowIcon"><i class="fas fa-angle-down"></i></a>
+                    </div>
                 </section>
+                <a name="2"></a>
                 <section id="chartSection">
                     <div className="container">
                         <div className="row" align="center">
@@ -244,6 +248,11 @@ export default class Year extends Component {
                         </div>
                     </div>
                 </section>
+                <footer id="bottom" class="text-center">
+                    <div class="col-12">
+                        <p>Copyright @ 2021 Schoolarmern</p>
+                    </div>
+                </footer>
             </div>
         )
     };
