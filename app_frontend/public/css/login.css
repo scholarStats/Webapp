@@ -5,26 +5,34 @@
     flex-direction: column ;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
-input[type="text"],
-input[type="password"] {
+label, form h1, form p  {
+  color: #474e5d;
+}
+
+input {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
   background: #f1f1f1;
+  text-align: center;
+  transition: .3s;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
+input:focus {
   background-color: rgb(204, 203, 203);
   outline: none;
 }
 
+input::placeholder {
+  text-align: center;
+}
+
 button {
-  background-color: #7300f7;
   color: rgb(255, 255, 255);
   padding: 14px 20px;
   margin: 8px 0;
@@ -32,22 +40,27 @@ button {
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+  transition: .3s;
 }
 
 button:hover {
   opacity: 1;
+  border-radius: 5px ;
 }
 
-.cancelbtn {
+#signinbtn {
+  background-color: #8504ee;
+}
+
+#cancelbtn {
   padding: 14px 20px;
   background-color: #f51000;
 }
 
-
-.cancelbtn,
-.signupbtn {
-  float: left;
-  width: 50%;
+#cancelbtn,
+#signinbtn {
+  width: 25%;
+  margin: 0 auto;
 }
 
 .container {
@@ -70,7 +83,7 @@ button:hover {
 .modal-content {
   background-color: #ffffff;
   border: 2px solid rgb(255, 255, 255);
-  width: 80%; 
+  width: 50%; 
 }
 
 hr {
@@ -91,10 +104,4 @@ hr {
 .close:focus {
   color: #f44336;
   cursor: pointer;
-}
-
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
 }

@@ -12,7 +12,7 @@ export default class Navbar extends Component {
                 <ul class="navbar-nav ml-auto">
                     <Link to="/Login">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i> Area Riservata</a>
                     </li>
                     </Link>
                 </ul>
