@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ChartJS from 'chart.js';
-import Navbar from './Partials/Navbar'
-import Footer from './Partials/Footer'
+import Navbar from './Partials/Navbar';
+import Footer from './Partials/Footer';
+import Base from './../Modules/Base';
 
 function createChartDoughnut() {
     let ctx = document.getElementById("chartDoughnut");
@@ -57,13 +58,13 @@ function createChartLine() {
     let ctx = document.getElementById("chartLine");
     let chart = new ChartJS(ctx, {
         type: 'line',
-        label: "Media voti per anno",
+        label: "Media generale mese",
         data: {
-            labels: ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021'],
+            labels: ['Set', 'Ott', 'Nov', 'Dic', 'Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu'],
             datasets: [{
                 label: 'Totale voti',
-                data: [12, 19, 3, 5, 2, 3, 8, 2, 9],
-                backgroundColor: 'rgba(255,0,200, 1)',
+                data: [8.7, 8.9, 7.5, 7, 8, 8.2, 6, 6.2, 6.9, 6.1],
+                backgroundColor: 'rgba(255,0,200, 0)',
                 borderColor: 'rgba(255,255,255, 1)',
                 borderWidth: 1.5
             }]
@@ -100,11 +101,10 @@ function createChartBar() {
     let ctx = document.getElementById("chartBar");
     let chart = new ChartJS(ctx, {
         type: 'bar',
-        labels: ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021'],
         data: {
-            labels: ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021'],
+            labels: ['info', 'srobot', 'chimICA', 'elettro', 'meccanica', 'logistica', 'biotecnologie'],
             datasets: [{
-                label: 'Totale voti',
+                label: 'Iscritti per specializzazione',
                 data: [12, 19, 3, 5, 2, 3, 8, 2, 9],
                 backgroundColor: 'rgba(0,213,255, 1)',
                 borderColor: 'rgba(255,255,255, 1)',
@@ -152,6 +152,9 @@ export default class Year extends Component {
             <div>
                 <Navbar />
                 <section id="chartSection">
+                    <div id="chartTitle">
+                        <h3>Voti ottenuti nel {Base.getYear()}</h3>
+                    </div>
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-6">
@@ -162,18 +165,18 @@ export default class Year extends Component {
                                     <div className="row" align="center">
                                         <div className="col-lg-2"></div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
+                                            <h5>Voti maggiori di 8</h5> <span id="statvaluepositive">20</span>
                                         </div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>MEDIA TOTALE:</h5> <h3 id="statevaluenegative">-3,8%</h3>
+                                            <h5>Voti maggiori di 6</h5> <span id="statevaluenegative">65</span>
                                         </div>
                                         <div className="col-lg-2"></div>
                                         <div className="col-lg-2"></div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
+                                            <h5>Δ voti</h5> <span id="statvaluepositive">+3,8%</span>
                                         </div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
+                                            <h5>Media totale</h5> <span id="statvaluepositive">8.2</span>
                                         </div>
                                         <div className="col-lg-2"></div>
                                     </div>
@@ -188,6 +191,9 @@ export default class Year extends Component {
                 </section>
                 <a name="2"></a>
                 <section id="chartSection">
+                    <div id="chartTitle">
+                        <h3>Andamento mensile {Base.getYear()}</h3>
+                    </div>
                     <div className="container">
                         <div className="row" align="center">
                             <div className="col-lg-6">
@@ -198,18 +204,18 @@ export default class Year extends Component {
                                     <div className="row">
                                         <div className="col-lg-2"></div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
+                                            <h5>Voto medio (tutti i mesi compresi)</h5> <span id="statvaluepositive">+3,8%</span>
                                         </div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>MEDIA TOTALE:</h5> <h3 id="statevaluenegative">-3,8%</h3>
+                                            <h5>Mese con media maggiore</h5> <span id="statevaluenegative">GENNAIO</span>
                                         </div>
                                         <div className="col-lg-2"></div>
                                         <div className="col-lg-2"></div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
+                                            <h5>Mese con media peggiore</h5> <span id="statvaluepositive">MARZO</span>
                                         </div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
+                                            <h5>Periodo scolastico migliore</h5> <span id="statvaluepositive">PENT</span>
                                         </div>
                                         <div className="col-lg-2"></div>
                                     </div>
@@ -219,6 +225,9 @@ export default class Year extends Component {
                     </div>
                 </section>
                 <section id="chartSection">
+                    <div id="chartTitle">
+                        <h3>Specializzazioni nel {Base.getYear()}</h3>
+                    </div>
                     <div className="container">
                         <div className="row" align="center">
                             <div className="col-lg-6">
@@ -229,18 +238,10 @@ export default class Year extends Component {
                                     <div className="row">
                                         <div className="col-lg-2"></div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
+                                            <h5>TOTALE ISCRITTI</h5> <h3 id="statvaluepositive">+3,8%</h3>
                                         </div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>MEDIA TOTALE:</h5> <h3 id="statevaluenegative">-3,8%</h3>
-                                        </div>
-                                        <div className="col-lg-2"></div>
-                                        <div className="col-lg-2"></div>
-                                        <div className="col-6 col-lg-4 ele">
-                                            <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
-                                        </div>
-                                        <div className="col-6 col-lg-4 ele">
-                                            <h5>MEDIA TOTALE:</h5> <h3 id="statvaluepositive">+3,8%</h3>
+                                            <h5>DIFF ANNO PRECEDENTE</h5> <h3 id="statevaluenegative">-3,8%</h3>
                                         </div>
                                         <div className="col-lg-2"></div>
                                     </div>

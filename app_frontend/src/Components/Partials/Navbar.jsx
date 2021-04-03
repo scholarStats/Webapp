@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom'
 export default class Navbar extends Component {
     render = () => {
         return (
-            <nav class="navbar navbar-light fixed-top">
+            <nav className="navbar navbar-light fixed-top">
                 <Link to="/">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_O_Preview_Logo.png" width="30" height="30" alt="" />
-                    LOGO
+                    SchoolarMERN
                 </Link>
-                <ul class="navbar-nav ml-auto">
+                <ul className="navbar-nav ml-auto">
                     <Link to="/Login">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user"></i> Area Riservata</a>
+                    <li className="nav-item">
+                        <i className="fas fa-user"></i> Area Riservata
                     </li>
                     </Link>
                 </ul>

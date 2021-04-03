@@ -154,6 +154,8 @@ section {
     color: rgb(0, 255, 42);
     font-size: 35px;
     font-weight: 700;
+    position: relative;
+    align-self: flex-end;
 }
 
 #statevaluenegative {
@@ -173,4 +175,15 @@ section {
 
 #arrowCont #arrowIcon{
     font-size: 2rem;
+}
+
+div > h5 {
+    text-align: center;
+}
+
+#chartTitle {
+    top: 20%;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 1.3rem;
 }
