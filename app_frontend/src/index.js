@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import App from './Components/App'
 import Year from './Components/Year' 
 import Error from './Components/Partials/Error'
+import Login from './Components/Login'
 
 
 ReactDOM.render(
@@ -11,6 +12,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" component={() => < App/>} />
+        <Route exact path="/Login" component={() => < Login/>} />
         <Route path="/Year/:year" component={() => <Year />} />
         <Route path="/Error/:code" component={() => <Error />} />
       </Switch>

@@ -10,9 +10,11 @@ export default class Navbar extends Component {
                     LOGO
                 </Link>
                 <ul class="navbar-nav ml-auto">
+                    <Link to="/Login">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Login</a>
                     </li>
+                    </Link>
                 </ul>
             </nav >
         )
