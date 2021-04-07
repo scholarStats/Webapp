@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
     "client": "npm start --prefix app_frontend/",
-    "clientinstall": "npm install --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"" 
+    "clientinstall": "npm install --prefix app_frontend/",
+    "init": "concurrently \"npm run clientinstall\" \" npm i\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
