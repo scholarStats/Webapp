@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ChartJS from 'chart.js';
 import Navbar from './Partials/Navbar';
 import Footer from './Partials/Footer';
 import Base from './../Modules/Base';

@@ -1,4 +1,4 @@
-class Base {
+class Error {
     getErrorValue = () => {
         let url = window.location.href;
         url = url.split("/Error/");
@@ -6,4 +6,4 @@ class Base {
     }
 }
 
-export default new Base();
+export default new Error();

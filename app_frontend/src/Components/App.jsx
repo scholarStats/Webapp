@@ -9,7 +9,7 @@ export default class App extends Component {
         super(props);
         
         this.state = {
-            message : "SchoolarMERN"
+            message : "Scholar Stats"
         }
     }
 
