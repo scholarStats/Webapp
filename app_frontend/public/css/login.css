@@ -81,9 +81,9 @@ button:hover {
 }
 
 .modal-content {
-  background-color: #ffffff;
   border: 2px solid rgb(255, 255, 255);
-  width: 50%; 
+  border-radius: 30px;
+  width: 30%; 
 }
 
 hr {

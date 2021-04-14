@@ -21,7 +21,6 @@ export default class Login extends Component {
 
                             <hr />
                             <button type="submit" id="signinbtn">Accedi</button>
-                            <button id="cancelbtn">Registrati</button>
                         </div>
                     </form>
                 </section>
