@@ -40,7 +40,6 @@ class Chart {
                             display: false,
                             fontColor: "white",
                             stepSize: 1,
-                            beginAtZero: true
                         },
                         gridLines: {
                             drawBorder: false,

@@ -5,6 +5,7 @@ import App from './Components/App'
 import Year from './Components/Year' 
 import Error from './Components/Partials/Error'
 import Login from './Components/Login'
+import Dashboard from './Components/Admin/Dashboard';
 
 
 ReactDOM.render(
@@ -15,6 +16,7 @@ ReactDOM.render(
         <Route exact path="/Login" component={() => < Login/>} />
         <Route path="/Year/:year" component={() => <Year />} />
         <Route path="/Error/:code" component={() => <Error />} />
+        <Route path="/Dashboard" component={() => <Dashboard />} />
       </Switch>
     </Router>
   </React.StrictMode>,
