@@ -178,6 +178,10 @@ section {
     font-size: 2rem;
 }
 
+#arrowIcon:hover {
+    color: #efb607;
+}
+
 div > h5 {
     text-align: center;
 }
@@ -204,4 +208,41 @@ div > h5 {
 
 #dashboardSection .row-100 {
     width: 100vw !important;
+}
+
+#userList {
+    display: block;
+    position: sticky; 
+    max-height: 335px;
+    overflow: scroll;
+    width: 100%;
+}
+
+#userList tbody, #userList thead {
+    width: 100%;
+    display: inline-table;
+    table-layout:fixed;
+}
+
+.btn-multicolor {
+    background-color: #525252;
+    color: white;
+    transition: .3s !important;
+}
+
+.btn-multicolor:hover {
+    background-color: #efb607;
+    color: white;
+}
+
+.btn-multicolor-2 {
+    background-color: #efb607;
+    color: white;
+    transition: .3s !important;
+}
+
+.btn-multicolor-2:hover {
+    background-color: #efb607;
+    color: white;
+    transition: .3s !important;
 }
