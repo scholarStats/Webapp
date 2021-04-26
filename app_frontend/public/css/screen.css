@@ -24,6 +24,10 @@ and (max-width : 768px) {
         display: none;
     }
 
+    #dashboardContainer {
+        width: 100%;
+    }
+
 }
 
 /* Tablet */
@@ -47,4 +51,10 @@ and (min-width : 990px) {
         border-bottom: 1px solid white;
         border-bottom-right-radius: 30px;
     }
+
+    #dashboardContainer {
+        width: 50%;
+        margin: 0 auto;
+    }
+    
 }

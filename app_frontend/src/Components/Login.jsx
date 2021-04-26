@@ -8,7 +8,7 @@ export default class Login extends Component {
             <body>
                 <Navbar />
                 <section id="loginCont">
-                    <form className="modal-content w3-animate-zoom" action="/action_page.php">
+                    <form className="modal-content w3-animate-zoom">
                         <div className="container">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_O_Preview_Logo.png" width="90" height="90" alt="" />
                             <h1>Login</h1>

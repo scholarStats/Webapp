@@ -21,8 +21,8 @@ class Dashboard extends Component {
                 <Navbar />
                 <section id="dashboardSection">
                     <div className="row row-100">
-                        <div className="col-12 col-sm-12 col-lg-6 align-self-center w3-animate-left">
-                            <div className="container">
+                        <div className="col-12 col-sm-12 col-lg-12 align-self-center w3-animate-left">
+                            <div id="dashboardContainer">
                                 <div className="card">
                                     <div className="card-header">
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_O_Preview_Logo.png" width="90" height="90" alt="" />
@@ -44,102 +44,15 @@ class Dashboard extends Component {
                                     <div className="card-body">
                                         <div className="row">
                                             <div className="col">
-                                                <span>Utenti totali: {this.state.totalUser}</span>
+                                                <h5>Utenti totali: <span id="statValue">{this.state.totalUser}</span></h5>
                                             </div>
                                             <div className="col">
-                                                <span>Visite oggi: {this.state.todayView}</span>
+                                                <h5>Visite oggi: <span id="statValue">{this.state.todayView}</span></h5>
                                             </div>
                                             <div className="col">
-                                                <span>Totale voti: {this.state.totalVote}</span>
+                                                <h5>Totale voti: <span id="statValue">{this.state.totalVote}</span></h5>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 align-self-center only-desktop w3-animate-right">
-                            <div className="container">
-                                <div className="card">
-                                    <div className="card-header">
-                                        <i className="fas fa-user-lock x-large"></i>
-                                        <h3>ELENCO UTENTI</h3>
-                                    </div>
-                                    <div className="card-body">
-                                        <table className="table" id="userList">
-                                            <thead>
-                                                <th>#</th>
-                                                <th>Nome utente</th>
-                                                <th>Tipo di utente</th>
-                                            </thead>
-                                            <tbody>
-                                                {/* Da implementare con il DB */}
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>admin@admin.com</td>
-                                                    <td>Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>admin@admin.com</td>
-                                                    <td>Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>admin@admin.com</td>
-                                                    <td>Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>admin@admin.com</td>
-                                                    <td>Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>admin@admin.com</td>
-                                                    <td>Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>admin@admin.com</td>
-                                                    <td>Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>admin@admin.com</td>
-                                                    <td>Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>admin@admin.com</td>
-                                                    <td>Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>admin@admin.com</td>
-                                                    <td>Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>admin@admin.com</td>
-                                                    <td>Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>admin@admin.com</td>
-                                                    <td>Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>admin@admin.com</td>
-                                                    <td>Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>admin@admin.com</td>
-                                                    <td>Admin</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
                                     </div>
                                 </div>
                             </div>

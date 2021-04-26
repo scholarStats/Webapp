@@ -7,10 +7,11 @@ class Chart {
             labels: ['Grafico'],
             type: 'doughnut',
             data: {
+                labels: ['Sufficenti', 'Non sufficenti'],
                 datasets: [{
                     label: 'Grafico a torta',
-                    data: [2, 64, 3, 2],
-                    backgroundColor: "rgba(255, 209, 0, 1)",
+                    data: [60, 20],
+                    backgroundColor: [ 'rgb(255, 0, 106)' , 'rgb(255, 115, 0)'],
                     borderColor: 'rgba(255,255,255, 1)',
                     borderWidth: 1.5
                 }],
@@ -20,10 +21,7 @@ class Chart {
                     duration: 3000,
                 },
                 legend: {
-                    labels: {
-                        fontColor: "white",
-                        fontSize: 18
-                    }
+                    display: false,
                 },
                 scales: {
                     xAxes: [{
@@ -100,7 +98,7 @@ class Chart {
         new ChartJS(ctx, {
             type: 'bar',
             data: {
-                labels: ['info', 'srobot', 'chimICA', 'elettro', 'meccanica', 'logistica', 'biotecnologie'],
+                labels: ['info', 'srobot', 'chimica', 'elettro', 'meccanica', 'logistica', 'biotecnologie'],
                 datasets: [{
                     label: 'Iscritti per specializzazione',
                     data: [12, 19, 3, 5, 2, 3, 8, 2, 9],
