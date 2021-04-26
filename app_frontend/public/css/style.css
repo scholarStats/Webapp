@@ -193,6 +193,12 @@ div > h5 {
     padding: 1.3rem;
 }
 
+#listTitle {
+    border-radius: 20px;
+    padding: 1.3rem;
+    text-align: center;
+}
+
 .card {
     color: #464646;
     text-align: center;
@@ -211,18 +217,39 @@ div > h5 {
     width: 100vw !important;
 }
 
-#userList {
+#voteList {
     display: block;
     position: sticky; 
-    max-height: 335px;
-    overflow: scroll;
+    max-height: 500px;
+    overflow-y: scroll;
     width: 100%;
+    text-align: center;
+    color: white;
 }
 
-#userList tbody, #userList thead {
+#voteList tbody, #voteList thead {
     width: 100%;
     display: inline-table;
     table-layout:fixed;
+}
+
+#voteList thead {
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid #ff006a;
+    background-color: #1d1d1d;
+    color: white;
+    z-index: 1;
+}
+
+.btn-admin {
+    background-color: #8a0039;
+    color: white;
+    transition: .3s !important;
+}
+
+.btn-admin:hover {
+    color: white;
 }
 
 .btn-multicolor {
@@ -242,13 +269,12 @@ table {
     border: 1px solid black;
 }
 
-thead {
-    background-color: #1d1d1d;
-    color: white;
-}
-
 thead th {
     padding: 20px;
+}
+
+tbody td {
+    vertical-align: middle;
 }
 
 #statValue {

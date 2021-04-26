@@ -7,7 +7,7 @@ export default class Navbar extends Component {
             <nav className="navbar navbar-light fixed-top">
                 <Link to="/">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_O_Preview_Logo.png" width="30" height="30" alt="" />
-                    SchoolarMERN
+                     Schoolarstats
                 </Link>
                 <ul className="navbar-nav ml-auto">
                     <Link to="/Login">

@@ -58,7 +58,7 @@ export default class Year extends Component {
                 <a name="2"></a>
                 <section id="chartSection">
                     <div id="chartTitle">
-                        <h3>Andamento mensile {Base.getYear()}</h3>
+                        <h3>Andamento mensile</h3>
                     </div>
                     <div className="container">
                         <div className="row" align="center">

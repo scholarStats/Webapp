@@ -29,8 +29,8 @@ class Dashboard extends Component {
                                         <h3>Bentornato {this.state.username}</h3>
                                     </div>
                                     <div className="card-header">
-                                        <button className="btn btn-multicolor">Crea utente</button>
-                                        <button className="btn btn-multicolor">Gestisci utenti</button>
+                                        <button className="btn btn-admin">Crea utente</button>
+                                        <button className="btn btn-admin">Gestisci utenti</button>
                                         <button className="btn btn-multicolor">Inserisci voti</button>
                                         <div className="row">
                                             <div className="col-6">
@@ -64,7 +64,33 @@ class Dashboard extends Component {
                 </section>
                 <a name="2"></a>
                 <section id="dashboardSection">
-
+                    <div className="row row-100">
+                        <div className="col-12 col-sm-12 col-lg-12 align-self-center w3-animate-left">
+                            <div id="dashboardContainer">
+                                <div id="listTitle">
+                                    <h3>Ultimi caricamenti</h3>
+                                </div>
+                                <table className="table" id="voteList">
+                                    <thead>
+                                        <th>Data</th>
+                                        <th>Voto</th>
+                                        <th>Materia</th>
+                                        <th>Sezione</th>
+                                        <th>-</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Data</td>
+                                            <td>5</td>
+                                            <td>Matematica</td>
+                                            <td>Informatica</td>
+                                            <td><a><h4><i className="fas fa-trash"></i></h4></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </div>
         )
