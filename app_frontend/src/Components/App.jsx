@@ -13,15 +13,15 @@ export default class App extends Component {
         }
     }
 
-    /* componentDidMount = () => {
-        axios.get("http://localhost:5000" , {
+    componentDidMount = () => {
+        axios.get("http://localhost:9000/" , {
             request: "a simple message"
         }).catch(err => {
             console.error(err);
         }).then((res) => {
-            this.setState(res.data);
+            console.log(res);
         })
-    } */
+    }
 
     render = () => {
         return (

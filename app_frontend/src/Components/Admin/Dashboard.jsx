@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Navbar from '../Partials/Navbar'
+import Navbar from '../Partials/Navbar';
+import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
 
@@ -31,7 +32,7 @@ class Dashboard extends Component {
                                     <div className="card-header">
                                         <button className="btn btn-admin">Crea utente</button>
                                         <button className="btn btn-admin">Gestisci utenti</button>
-                                        <button className="btn btn-multicolor">Inserisci voti</button>
+                                        <Link to="/Insert"><button className="btn btn-multicolor">Inserisci voti</button></Link>
                                         <div className="row">
                                             <div className="col-6">
                                                 <button className="btn btn-multicolor"><i className="fas fa-user-edit"></i><h5>Modifica</h5></button>
