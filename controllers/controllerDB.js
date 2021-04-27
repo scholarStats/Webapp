@@ -33,6 +33,7 @@ exports.createMark = (req, res) =>{
 }
 
 exports.createUser = (req, res) => {
+    //create user and send email
     console.log(req.body);
     let randomstring = Math.random().toString(36).slice(-8);
     let scholarDB = new sqlite3.Database(pathDb);
@@ -49,13 +50,13 @@ exports.createUser = (req, res) => {
         from: 'mattycarly02@gmail.com',
         to: `${req.body.valoreEmail}`,
         subject: 'Credenziali di accesso a Scholar Stats',
-        html: `<h5>HTML TEST</h5>Le credenziali di accesso per il tuo account sono le seguenti: username: ${req.body.valoreEmail}, password: ${randomstring}`
+        html: `<div style="padding:30px" align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_O_Preview_Logo.png" width="50" height="50" alt=""/><hr><h3>Schoolar Stats </h3> <h5>Credenziali di accesso </h5><b>Username:</b> ${req.body.valoreEmail} <b>Password</b>: ${randomstring} <p>Utilizza queste credenziali per accedere alla Dashboard dell'app Scholar Stats. In caso di problemi, contattare l'assistenza</p></div>`
     }
-    
     transporter.sendMail(mailDetail, (err, info) => {
         if(err) throw err;
         console.log("Email inviata correttamente...");
-    })
+    });
+    res.send(true);
 }
 
 exports.getCollectionMarks = (req, res) => {

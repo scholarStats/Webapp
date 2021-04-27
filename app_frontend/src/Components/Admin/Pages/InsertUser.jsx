@@ -23,9 +23,6 @@ class InsertUser extends Component {
             .post(`http://${Base.getIp()}:${Base.getPort()}/db/createUser`, { valoreEmail: this.state.valoreEmail })
             .then((res) => {
                 console.log(res);
-                if(res.data === true) {
-                    window.location.replace("/Dashboard");
-                }
             })
     }
 

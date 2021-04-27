@@ -33,7 +33,9 @@ class Dashboard extends Component {
                                         <Link to="/InsertUser">
                                             <button className="btn btn-admin">Crea utente</button>
                                         </Link>
+                                        <Link to="/getUsers">
                                         <button className="btn btn-admin">Gestisci utenti</button>
+                                        </Link>
                                         <Link to="/Insert"><button className="btn btn-multicolor">Inserisci voti</button></Link>
                                         <div className="row">
                                             <div className="col-6">

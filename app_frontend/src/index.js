@@ -8,6 +8,7 @@ import Login from './Components/Login';
 import Dashboard from './Components/Admin/Dashboard';
 import Insert from './Components/Admin/Pages/Insert';
 import InsertUser from './Components/Admin/Pages/InsertUser';
+import GetUsers from './Components/Admin/Pages/getUsers';
 
 
 ReactDOM.render(
@@ -21,6 +22,7 @@ ReactDOM.render(
         <Route path="/Dashboard" component={() => <Dashboard />} />
         <Route path="/Insert" component={() => <Insert />} />
         <Route path="/InsertUser" component={() => <InsertUser />} />
+        <Route path="/getUsers" component={() => <GetUsers />} />
       </Switch>
     </Router>
   </React.StrictMode>,
