@@ -30,7 +30,9 @@ class Dashboard extends Component {
                                         <h3>Bentornato {this.state.username}</h3>
                                     </div>
                                     <div className="card-header">
-                                        <button className="btn btn-admin">Crea utente</button>
+                                        <Link to="/InsertUser">
+                                            <button className="btn btn-admin">Crea utente</button>
+                                        </Link>
                                         <button className="btn btn-admin">Gestisci utenti</button>
                                         <Link to="/Insert"><button className="btn btn-multicolor">Inserisci voti</button></Link>
                                         <div className="row">

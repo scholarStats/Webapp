@@ -7,6 +7,7 @@ import Error from './Components/Partials/Error';
 import Login from './Components/Login';
 import Dashboard from './Components/Admin/Dashboard';
 import Insert from './Components/Admin/Pages/Insert';
+import InsertUser from './Components/Admin/Pages/InsertUser';
 
 
 ReactDOM.render(
@@ -19,6 +20,7 @@ ReactDOM.render(
         <Route path="/Error/:code" component={() => <Error />} />
         <Route path="/Dashboard" component={() => <Dashboard />} />
         <Route path="/Insert" component={() => <Insert />} />
+        <Route path="/InsertUser" component={() => <InsertUser />} />
       </Switch>
     </Router>
   </React.StrictMode>,

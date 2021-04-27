@@ -28,6 +28,10 @@ and (max-width : 768px) {
         width: 100%;
     }
 
+    #formInsert {
+        width: 80%;
+    }
+
 }
 
 /* Tablet */
@@ -41,6 +45,14 @@ and (max-width : 989px) and (min-width : 769px) {
     #span {
         padding: 30px;
     }
+
+    #formInsert {
+        width: 60%;
+        background-color: white;
+        padding: 2rem;
+        text-align: center;
+    }
+
 }
 
 /* Desktops and laptops ----------- */

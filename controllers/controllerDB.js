@@ -1,5 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
-const pathDb = "./public/scholarDB.db"
+const nodemailer = require('nodemailer');
+const pathDb = "./public/scholarDB.db";
+
 
     // idMark autoinc
     // valueMark
@@ -28,6 +30,32 @@ exports.createMark = (req, res) =>{
     scholarDB.run(`INSERT INTO marks VALUES(NULL, ${req.body.votoValore}, ${req.body.idMateria}, "${formattedDate}");`);
     scholarDB.close();
     res.send(true);
+}
+
+exports.createUser = (req, res) => {
+    console.log(req.body);
+    let randomstring = Math.random().toString(36).slice(-8);
+    let scholarDB = new sqlite3.Database(pathDb);
+    scholarDB.run(`INSERT INTO users VALUES(NULL, "${req.body.valoreEmail}", "${randomstring}");`);
+    scholarDB.close();
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'mattycarly02@gmail.com',
+            pass: '07081276MA'
+        }
+    });
+    const mailDetail = {
+        from: 'mattycarly02@gmail.com',
+        to: `${req.body.valoreEmail}`,
+        subject: 'Credenziali di accesso a Scholar Stats',
+        html: `<h5>HTML TEST</h5>Le credenziali di accesso per il tuo account sono le seguenti: username: ${req.body.valoreEmail}, password: ${randomstring}`
+    }
+    
+    transporter.sendMail(mailDetail, (err, info) => {
+        if(err) throw err;
+        console.log("Email inviata correttamente...");
+    })
 }
 
 exports.getCollectionMarks = (req, res) => {

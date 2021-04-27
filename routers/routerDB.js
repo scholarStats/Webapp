@@ -21,5 +21,9 @@ router
     .route('/delete/:id')
     .delete(controllerDB.deleteMark);
 
+router
+    .route('/createUser')
+    .post(controllerDB.createUser);
+
 
 module.exports = router;

@@ -280,3 +280,38 @@ tbody td {
 #statValue {
     color: #ff006a;
 }
+
+#formInsert {
+    width: 40%;
+    background-color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+#formInsert label {
+    margin-top: 10px;
+    text-align:center;
+    line-height:150%;
+}
+
+#formInsert select {
+    text-align-last:center;
+}
+
+#formInsert input {
+    color: #414141;
+}
+
+#formInsert button {
+    background-color: #ff006a;
+    color: white;
+    margin-top: 20px;
+}
+
+*:focus {
+    outline: 0!important;
+}
+
+*:active {
+    outline: 0!important;
+}
