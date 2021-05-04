@@ -1,7 +1,8 @@
 import ChartJS from 'chart.js';
 
 class Chart {
-    createChartDoughnut = () => {
+    createChartDoughnut = (arr) => {
+        console.log(arr);
         let ctx = document.getElementById("chartDoughnut");
         new ChartJS(ctx, {
             labels: ['Grafico'],
@@ -10,7 +11,7 @@ class Chart {
                 labels: ['Sufficenti', 'Non sufficenti'],
                 datasets: [{
                     label: 'Grafico a torta',
-                    data: [60, 20],
+                    data: [arr.mar_positiveCount, arr.mar_negativeCount],
                     backgroundColor: [ 'rgb(255, 0, 106)' , 'rgb(255, 115, 0)'],
                     borderColor: 'rgba(255,255,255, 1)',
                     borderWidth: 1.5

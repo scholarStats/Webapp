@@ -2,12 +2,6 @@ const sqlite3 = require('sqlite3').verbose();
 const nodemailer = require('nodemailer');
 const pathDb = "./public/scholarDB.db";
 
-
-    // idMark autoinc
-    // valueMark
-    // idSubject
-    // dateMark
-
 exports.getCreateMark = (req, res) => {
     //Rendering pagina voti
     let scholarDB = new sqlite3.Database(pathDb);
@@ -34,7 +28,6 @@ exports.createMark = (req, res) =>{
 
 exports.createUser = (req, res) => {
     //create user and send email
-    console.log(req.body);
     let randomstring = Math.random().toString(36).slice(-8);
     let scholarDB = new sqlite3.Database(pathDb);
     scholarDB.run(`INSERT INTO users VALUES(NULL, "${req.body.valoreEmail}", "${randomstring}");`);
@@ -60,16 +53,21 @@ exports.createUser = (req, res) => {
 }
 
 exports.getCollectionMarks = (req, res) => {
-    //get table voti
+    let scholarDB = new sqlite3.Database(pathDb);
+    console.log(req.params);
+    let stmt = `SELECT * FROM (SELECT count(mar_value) as mar_positiveCount FROM marks INNER JOIN subjects ON sub_id = mar_idSubject WHERE mar_date = "${req.params.id}" AND mar_value >= 6), (SELECT count(mar_value) as mar_negativeCount FROM marks INNER JOIN subjects ON sub_id = mar_idSubject WHERE mar_date = "${req.params.id}" AND mar_value < 6), (SELECT avg(mar_value) as mar_avg FROM marks WHERE mar_date = "${req.params.id}"), (SELECT count(mar_value) as mar_major FROM marks WHERE mar_date = "${req.params.id}" AND mar_value >= 8), (SELECT count(mar_value) as mar_minor FROM marks WHERE mar_date = "${req.params.id}" AND mar_value <= 6)`;
+    scholarDB.all(stmt, (err, marks) => {
+        if(err) throw err;
+        console.log(marks);
+        res.send(marks);
+    });
 }
 
 exports.getUpdateMark = (req, res) =>{
     let scholarDB = new sqlite3.Database(pathDb);
     let stmt = `SELECT idSubject, nameSubject FROM subjects;`
     scholarDB.all(stmt, (err, subjects) => {
-        if(err){
-            throw err;
-        }
+        if(err) throw err;
     
         stmt = `SELECT * FROM marks where idMark = ${req.params.id};`;
         scholarDB.all(stmt, (err, mark) =>{

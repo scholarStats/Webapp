@@ -16,12 +16,12 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" component={() => < App/>} />
-        <Route exact path="/Login" component={() => < Login/>} />
-        <Route path="/Year/:year" component={() => <Year />} />
-        <Route path="/Error/:code" component={() => <Error />} />
-        <Route path="/Dashboard" component={() => <Dashboard />} />
-        <Route path="/Insert" component={() => <Insert />} />
-        <Route path="/InsertUser" component={() => <InsertUser />} />
+        <Route exact path="/login" component={() => < Login/>} />
+        <Route path="/year/:year" component={() => <Year />} />
+        <Route path="/error/:code" component={() => <Error />} />
+        <Route path="/dashboard" component={() => <Dashboard />} />
+        <Route path="/insert" component={() => <Insert />} />
+        <Route path="/insertUser" component={() => <InsertUser />} />
         <Route path="/getUsers" component={() => <GetUsers />} />
       </Switch>
     </Router>

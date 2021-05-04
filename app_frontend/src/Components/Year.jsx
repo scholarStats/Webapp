@@ -3,12 +3,28 @@ import Navbar from './Partials/Navbar';
 import Footer from './Partials/Footer';
 import Base from './../Modules/Base';
 import Chart from './../Modules/Chart'
-
-
+import axios from 'axios';
 
 export default class Year extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            avg: 0,
+            major: 0,
+            minor: 0,
+        }
+
+    }
+
     componentDidMount() {
-        Chart.createChartDoughnut();
+        axios.get(`http://${Base.getIp()}:${Base.getPort()}/db/collectionMarks/${Base.getYear()}`)
+            .then((res) => {
+                this.setState({ avg: res.data[0].mar_avg, major: res.data[0].mar_major, minor: res.data[0].mar_minor });
+                Chart.createChartDoughnut(res.data[0]);
+            })
+
         Chart.createChartLine();
         Chart.createChartBar();
     }
@@ -31,20 +47,14 @@ export default class Year extends Component {
                                     <div className="row" align="center">
                                         <div className="col-lg-2"></div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>Voti maggiori di 8</h5> <span id="statvaluepositive">20</span>
+                                            <h4>Voti maggiori <br /> di 8</h4> <span id="statvaluepositive">{this.state.major}</span>
                                         </div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>Voti maggiori di 6</h5> <span id="statevaluenegative">65</span>
+                                            <h4>Voti minori di <br />6</h4> <span id="statevaluenegative">{this.state.minor}</span>
                                         </div>
-                                        <div className="col-lg-2"></div>
-                                        <div className="col-lg-2"></div>
-                                        <div className="col-6 col-lg-4 ele">
-                                            <h5>Δ voti</h5> <span id="statvaluepositive">+3,8%</span>
+                                        <div className="col-12 col-lg-12 ele">
+                                            <h4>Media totale</h4> <span id="statvaluepositive">{this.state.avg}</span>
                                         </div>
-                                        <div className="col-6 col-lg-4 ele">
-                                            <h5>Media totale</h5> <span id="statvaluepositive">8.2</span>
-                                        </div>
-                                        <div className="col-lg-2"></div>
                                     </div>
 
                                 </div>

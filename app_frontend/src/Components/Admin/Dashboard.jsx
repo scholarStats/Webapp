@@ -12,7 +12,6 @@ class Dashboard extends Component {
             todayView: "5",
             totalVote: "5",
             totalUser: "5"
-
         }
     }
 
@@ -30,13 +29,13 @@ class Dashboard extends Component {
                                         <h3>Bentornato {this.state.username}</h3>
                                     </div>
                                     <div className="card-header">
-                                        <Link to="/InsertUser">
+                                        <Link to="/insertUser">
                                             <button className="btn btn-admin">Crea utente</button>
                                         </Link>
                                         <Link to="/getUsers">
                                         <button className="btn btn-admin">Gestisci utenti</button>
                                         </Link>
-                                        <Link to="/Insert"><button className="btn btn-multicolor">Inserisci voti</button></Link>
+                                        <Link to="/insert"><button className="btn btn-multicolor">Inserisci voti</button></Link>
                                         <div className="row">
                                             <div className="col-6">
                                                 <button className="btn btn-multicolor"><i className="fas fa-user-edit"></i><h5>Modifica</h5></button>

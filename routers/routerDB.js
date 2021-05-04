@@ -9,7 +9,7 @@ router
     .post(controllerDB.createMark);
 
 router 
-    .route('/collectionMarks')
+    .route('/collectionMarks/:id')
     .get(controllerDB.getCollectionMarks);
 
 router
