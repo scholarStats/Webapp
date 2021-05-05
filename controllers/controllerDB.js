@@ -55,11 +55,16 @@ exports.createUser = (req, res) => {
 exports.getCollectionMarks = (req, res) => {
     let scholarDB = new sqlite3.Database(pathDb);
     console.log(req.params);
-    let stmt = `SELECT * FROM (SELECT count(mar_value) as mar_positiveCount FROM marks INNER JOIN subjects ON sub_id = mar_idSubject WHERE mar_date = "${req.params.id}" AND mar_value >= 6), (SELECT count(mar_value) as mar_negativeCount FROM marks INNER JOIN subjects ON sub_id = mar_idSubject WHERE mar_date = "${req.params.id}" AND mar_value < 6), (SELECT avg(mar_value) as mar_avg FROM marks WHERE mar_date = "${req.params.id}"), (SELECT count(mar_value) as mar_major FROM marks WHERE mar_date = "${req.params.id}" AND mar_value >= 8), (SELECT count(mar_value) as mar_minor FROM marks WHERE mar_date = "${req.params.id}" AND mar_value <= 6)`;
+    let stmt = `SELECT * FROM (SELECT count(mar_value) as mar_positiveCount FROM marks INNER JOIN subjects ON sub_id = mar_idSubject WHERE mar_date LIKE "${req.params.id}%" AND mar_value >= 6), (SELECT count(mar_value) as mar_negativeCount FROM marks INNER JOIN subjects ON sub_id = mar_idSubject WHERE mar_date LIKE "${req.params.id}%" AND mar_value < 6), (SELECT avg(mar_value) as mar_avg FROM marks WHERE mar_date LIKE "${req.params.id}%"), (SELECT count(mar_value) as mar_major FROM marks WHERE mar_date LIKE "${req.params.id}%" AND mar_value >= 8), (SELECT count(mar_value) as mar_minor FROM marks WHERE mar_date LIKE "${req.params.id}%" AND mar_value <= 6)`;
     scholarDB.all(stmt, (err, marks) => {
         if(err) throw err;
-        console.log(marks);
-        res.send(marks);
+        stmt = `SELECT * FROM (SELECT avg(mar_value) as avg_set FROM marks WHERE mar_date LIKE "${req.params.id}-09"), (SELECT avg(mar_value) as avg_ott FROM marks WHERE mar_date LIKE "${req.params.id}-10"), (SELECT avg(mar_value) as avg_nov FROM marks WHERE mar_date LIKE "${req.params.id}-11"), (SELECT avg(mar_value) as avg_dic FROM marks WHERE mar_date LIKE "${req.params.id}-12"), (SELECT avg(mar_value) as avg_gen FROM marks WHERE mar_date LIKE "${req.params.id}-01"), (SELECT avg(mar_value) as avg_feb FROM marks WHERE mar_date LIKE "${req.params.id}-02"), (SELECT avg(mar_value) as avg_mar FROM marks WHERE mar_date LIKE "${req.params.id}-03"), (SELECT avg(mar_value) as avg_apr FROM marks WHERE mar_date LIKE "${req.params.id}-04"), (SELECT avg(mar_value) as avg_mag FROM marks WHERE mar_date LIKE "${req.params.id}-05" ), (SELECT avg(mar_value) as avg_giu FROM marks WHERE mar_date LIKE "${req.params.id}-06");`;
+        scholarDB.all(stmt, (err, months) => {
+            if(err) throw err;
+            
+            res.send([marks, months]);
+        })
+        
     });
 }
 
@@ -74,6 +79,7 @@ exports.getUpdateMark = (req, res) =>{
             if(err){
                 throw err;
             }
+
 
             res.send(mark, subjects);
         })

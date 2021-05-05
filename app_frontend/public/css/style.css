@@ -158,12 +158,14 @@ section {
     font-weight: 700;
     position: relative;
     align-self: flex-end;
+    text-transform: uppercase;
 }
 
 #statevaluenegative {
     color: rgb(255, 115, 0);
     font-size: 35px;
     font-weight: 700;
+    text-transform: uppercase;
 }
 
 #arrowCont {

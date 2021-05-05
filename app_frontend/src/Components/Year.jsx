@@ -14,6 +14,10 @@ export default class Year extends Component {
             avg: 0,
             major: 0,
             minor: 0,
+            bestMonth: "",
+            worstMonth: "",
+            avgMonth: 0,
+            bestPeriod: ""
         }
 
     }
@@ -21,11 +25,12 @@ export default class Year extends Component {
     componentDidMount() {
         axios.get(`http://${Base.getIp()}:${Base.getPort()}/db/collectionMarks/${Base.getYear()}`)
             .then((res) => {
-                this.setState({ avg: res.data[0].mar_avg, major: res.data[0].mar_major, minor: res.data[0].mar_minor });
-                Chart.createChartDoughnut(res.data[0]);
+                this.setState({ avg: res.data[0][0].mar_avg, major: res.data[0][0].mar_major, minor: res.data[0][0].mar_minor, bestMonth: Chart.getBestMonth(res.data[1][0]), worstMonth: Chart.getWorstMonth(res.data[1][0]), avgMonth: Chart.getAvg(res.data[1][0]), bestPeriod: Chart.getBestPeriod(res.data[1][0]) });
+                Chart.createChartDoughnut(res.data[0][0]);
+                Chart.createChartLine(res.data[1][0]);
             })
 
-        Chart.createChartLine();
+        
         Chart.createChartBar();
     }
 
@@ -80,18 +85,18 @@ export default class Year extends Component {
                                     <div className="row">
                                         <div className="col-lg-2"></div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>Voto medio (tutti i mesi compresi)</h5> <span id="statvaluepositive">+3,8%</span>
+                                            <h5>Voto medio (tutti i mesi compresi)</h5> <span id="statvaluepositive">{this.state.avgMonth}</span>
                                         </div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>Mese con media maggiore</h5> <span id="statevaluenegative">GENNAIO</span>
+                                            <h5>Mese con media migliore</h5> <span id="statevaluenegative">{this.state.bestMonth}</span>
                                         </div>
                                         <div className="col-lg-2"></div>
                                         <div className="col-lg-2"></div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>Mese con media peggiore</h5> <span id="statvaluepositive">MARZO</span>
+                                            <h5>Mese con media peggiore</h5> <span id="statvaluepositive">{this.state.worstMonth}</span>
                                         </div>
                                         <div className="col-6 col-lg-4 ele">
-                                            <h5>Periodo scolastico migliore</h5> <span id="statvaluepositive">PENT</span>
+                                            <h5>Periodo scolastico migliore</h5> <span id="statvaluepositive">{this.state.bestPeriod}</span>
                                         </div>
                                         <div className="col-lg-2"></div>
                                     </div>
