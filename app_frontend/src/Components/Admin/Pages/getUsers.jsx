@@ -3,12 +3,28 @@ import Base from "./../../../Modules/Base";
 import axios from "axios";
 import Navbar from './../../Partials/Navbar';
 
-class getUsers extends Component{
+class getUsers extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            users: []
+        }
+    }
+
+    componentDidMount = () => {
+        axios.get(`http://${Base.getIp()}:${Base.getPort()}/db/getUsers`)
+            .then(res => {
+                this.setState({ users: res.data });
+            });
+    }
+
     render = () => {
-        return(
-        <div>
-            <Navbar />
-            <section id="dashboardSection">
+        return (
+            <div>
+                <Navbar />
+                <section id="dashboardSection">
                     <div className="row row-100">
                         <div className="col-12 col-sm-12 col-lg-12 align-self-center w3-animate-left">
                             <div id="dashboardContainer">
@@ -23,19 +39,25 @@ class getUsers extends Component{
                                         <th>-</th>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Rosso</td>
-                                            <td>Matematica</td>
-                                            <td><a><h4><i className="fas fa-trash"></i></h4></a></td>
-                                        </tr>
+                                        {
+                                            this.state.users.map((ele) => {
+                                                return (
+                                                    <tr>
+                                                        <td>{ele.usr_id}</td>
+                                                        <td>{ele.usr_email}</td>
+                                                        <td>specializzazione</td>
+                                                        <td><a><i class="fas fa-trash"></i></a></td>
+                                                    </tr>
+                                                )
+                                            })
+                                        }
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </section>
-        </div>)
+            </div>)
     }
 }
 

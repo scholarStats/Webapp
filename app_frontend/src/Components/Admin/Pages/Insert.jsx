@@ -33,7 +33,7 @@ class Insert extends Component {
     axios
       .post(`http://${Base.getIp()}:${Base.getPort()}/db/create`, { idMateria: this.state.idMateria, votoValore: this.state.votoValore })
       .then((res) => {
-        console.log(res)
+        window.location.replace("/Dashboard");
       })
   }
 
@@ -51,7 +51,7 @@ class Insert extends Component {
                 <option value="0">-</option>
                 {this.state.subjects.map((element) => {
                   return (
-                    <option value={element.idSubject}>{element.nameSubject}</option>
+                    <option value={element.sub_id}>{element.sub_name}</option>
                   );
                 })}
               </select>

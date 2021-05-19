@@ -5,7 +5,7 @@ const pathDb = "./public/scholarDB.db";
 exports.getCreateMark = (req, res) => {
     //Rendering pagina voti
     let scholarDB = new sqlite3.Database(pathDb);
-    let stmt = `SELECT idSubject, nameSubject FROM subjects;`
+    let stmt = `SELECT sub_id, sub_name FROM subjects;`
     scholarDB.all(stmt, (err, subjects) => {
         if(err){
             throw err;
@@ -19,7 +19,7 @@ exports.createMark = (req, res) =>{
     console.log(req.body);
     let scholarDB = new sqlite3.Database(pathDb);
     let date = new Date();
-    let formattedDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}`;
+    let formattedDate = `${date.getFullYear()}-${date.getMonth()}`;
     console.log(formattedDate)
     scholarDB.run(`INSERT INTO marks VALUES(NULL, ${req.body.votoValore}, ${req.body.idMateria}, "${formattedDate}");`);
     scholarDB.close();
@@ -68,13 +68,22 @@ exports.getCollectionMarks = (req, res) => {
     });
 }
 
+exports.getAllCollectionMarks = (req, res) => {
+    let scholarDB = new sqlite3.Database(pathDb);
+    let stmt = `SELECT * FROM marks INNER JOIN subjects ON sub_id = mar_idSubject INNER JOIN fields ON fil_id = mar_idSubject ORDER BY mar_date`;
+    scholarDB.all(stmt, (err, marks) => {
+        if(err) throw err;
+        res.send(marks);
+    })
+}
+
 exports.getUpdateMark = (req, res) =>{
     let scholarDB = new sqlite3.Database(pathDb);
-    let stmt = `SELECT idSubject, nameSubject FROM subjects;`
+    let stmt = `SELECT sub_id, sub_name FROM subjects;`
     scholarDB.all(stmt, (err, subjects) => {
         if(err) throw err;
     
-        stmt = `SELECT * FROM marks where idMark = ${req.params.id};`;
+        stmt = `SELECT * FROM marks where mar_id = ${req.params.id};`;
         scholarDB.all(stmt, (err, mark) =>{
             if(err){
                 throw err;
@@ -88,15 +97,22 @@ exports.getUpdateMark = (req, res) =>{
 
 exports.updateMark = (req, res) =>{
     let scholarDB = new sqlite3.Database(pathDb);
-    scholarDB.run(`UPDATE mark SET valueMark = ${req.body.votoValore}, idSubject = ${req.body.votoValore} where idMark = ${req.body.votoId};`);
+    scholarDB.run(`UPDATE marks SET mar_value = ${req.body.votoValore}, mar_idSubject = ${req.body.votoValore} where mar_id = ${req.body.votoId};`);
     scholarDB.close();
 }
 
 exports.deleteMark = (req, res) => {
-
     let id = req.params.id;
     let scholarDB = new sqlite3.Database(pathDb);
-    scholarDB.run(`DELETE FROM mark WHERE idMark = ${id};`);
+    scholarDB.run(`DELETE FROM marks WHERE mar_id = ${id};`);
     scholarDB.close;
+}
+
+exports.getUsers = (req, res) => {
+    let scholarDB = new sqlite3.Database(pathDb);
+    let stmt = "SELECT usr_id, usr_email FROM users;";
+    scholarDB.all(stmt, (err, users) => {
+        res.send(users);
+    })
 }
 

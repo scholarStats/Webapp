@@ -28,12 +28,7 @@ export default class App extends Component {
             <div>
                 <Navbar />
                 <div id="title">
-                    <h1 align="center">{this.state.message}</h1>
-                    
-                    {/* <div id="desc">
-                        <p align="center">Seleziona anno</p>
-                    </div> */}
-                    
+                    <h1 align="center">{this.state.message}</h1>   
                 </div>
                 <section id="timeSection">
                     <div id="lineCont">

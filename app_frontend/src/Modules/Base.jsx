@@ -15,7 +15,7 @@ class Base {
         ip = ip.split(":");
         return ip[0];
     }
-
+    
 }
 
 export default new Base;

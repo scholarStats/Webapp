@@ -12,6 +12,14 @@ router
     .route('/collectionMarks/:id')
     .get(controllerDB.getCollectionMarks);
 
+router 
+    .route('/collectionMarks/')
+    .get(controllerDB.getAllCollectionMarks);
+
+router.
+    route('/getUsers')
+    .get(controllerDB.getUsers);
+
 router
     .route('/update')
     .get(controllerDB.getUpdateMark)

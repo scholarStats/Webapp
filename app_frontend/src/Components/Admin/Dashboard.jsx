@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from '../Partials/Navbar';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Base from '../../Modules/Base';
 
 class Dashboard extends Component {
 
@@ -11,8 +13,17 @@ class Dashboard extends Component {
             username: "Utente",
             todayView: "5",
             totalVote: "5",
-            totalUser: "5"
+            totalUser: "5",
+            marks: []
         }
+    }
+
+    componentDidMount = () => {
+        axios.get(`http://${Base.getIp()}:${Base.getPort()}/db/collectionMarks`)
+            .then(res => {
+                console.log(res);
+                this.setState({ marks: res.data })
+            })
     }
 
     render = () => {
@@ -45,19 +56,6 @@ class Dashboard extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="card-body">
-                                        <div className="row">
-                                            <div className="col">
-                                                <h5>Utenti totali: <span id="statValue">{this.state.totalUser}</span></h5>
-                                            </div>
-                                            <div className="col">
-                                                <h5>Visite oggi: <span id="statValue">{this.state.todayView}</span></h5>
-                                            </div>
-                                            <div className="col">
-                                                <h5>Totale voti: <span id="statValue">{this.state.totalVote}</span></h5>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -83,13 +81,17 @@ class Dashboard extends Component {
                                         <th>-</th>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Data</td>
-                                            <td>5</td>
-                                            <td>Matematica</td>
-                                            <td>Informatica</td>
-                                            <td><a><h4><i className="fas fa-trash"></i></h4></a></td>
-                                        </tr>
+                                        {this.state.marks.map((mark) => {
+                                            return(
+                                                <tr>
+                                                    <td>{mark.mar_date}</td>
+                                                    <td>{mark.mar_value}</td>
+                                                    <td>{mark.sub_name}</td>
+                                                    <td>{mark.fil_name}</td>
+                                                    <td><i className="fas fa-trash-alt"></i></td>
+                                                </tr>
+                                            )
+                                        })}
                                     </tbody>
                                 </table>
                             </div>
