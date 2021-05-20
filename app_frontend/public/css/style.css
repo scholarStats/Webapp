@@ -63,6 +63,10 @@ section {
     flex-direction: column;
 }
 
+#dashboardContainer {
+    width: 100%;
+}
+
 #title{
     position: absolute;
     margin-top: 12%;

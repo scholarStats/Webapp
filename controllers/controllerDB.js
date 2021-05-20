@@ -70,7 +70,7 @@ exports.getCollectionMarks = (req, res) => {
 
 exports.getAllCollectionMarks = (req, res) => {
     let scholarDB = new sqlite3.Database(pathDb);
-    let stmt = `SELECT * FROM marks INNER JOIN subjects ON sub_id = mar_idSubject INNER JOIN fields ON fil_id = mar_idSubject ORDER BY mar_date`;
+    let stmt = `SELECT * FROM marks INNER JOIN subjects ON sub_id = mar_idSubject INNER JOIN fields ON fil_id = sub_idField ORDER BY mar_date`;
     scholarDB.all(stmt, (err, marks) => {
         if(err) throw err;
         res.send(marks);

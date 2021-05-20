@@ -25,7 +25,7 @@ export default class Year extends Component {
     componentDidMount() {
         axios.get(`http://${Base.getIp()}:${Base.getPort()}/db/collectionMarks/${Base.getYear()}`)
             .then((res) => {
-                this.setState({ avg: res.data[0][0].mar_avg, major: res.data[0][0].mar_major, minor: res.data[0][0].mar_minor, bestMonth: Chart.getBestMonth(res.data[1][0]), worstMonth: Chart.getWorstMonth(res.data[1][0]), avgMonth: Chart.getAvg(res.data[1][0]), bestPeriod: Chart.getBestPeriod(res.data[1][0]) });
+                this.setState({ avg: (res.data[0][0].mar_avg).toFixed(2), major: res.data[0][0].mar_major, minor: res.data[0][0].mar_minor, bestMonth: Chart.getBestMonth(res.data[1][0]), worstMonth: Chart.getWorstMonth(res.data[1][0]), avgMonth: Chart.getAvg(res.data[1][0]), bestPeriod: Chart.getBestPeriod(res.data[1][0]) });
                 Chart.createChartDoughnut(res.data[0][0]);
                 Chart.createChartLine(res.data[1][0]);
             })

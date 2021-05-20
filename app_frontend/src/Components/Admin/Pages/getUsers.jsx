@@ -35,7 +35,6 @@ class getUsers extends Component {
                                     <thead>
                                         <th>Id</th>
                                         <th>Email</th>
-                                        <th>Specializzazione</th>
                                         <th>-</th>
                                     </thead>
                                     <tbody>
@@ -45,7 +44,6 @@ class getUsers extends Component {
                                                     <tr>
                                                         <td>{ele.usr_id}</td>
                                                         <td>{ele.usr_email}</td>
-                                                        <td>specializzazione</td>
                                                         <td><a><i class="fas fa-trash"></i></a></td>
                                                     </tr>
                                                 )
